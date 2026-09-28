@@ -18,7 +18,28 @@
             "public": true,
             "pages": [
               "index",
-              "quickstart"
+              "quickstart",
+              "tests/index",
+              {
+                "group": "Nested, no marker",
+                "pages": [
+                  "tests/nested-child"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Mixed",
+        "pages": [
+          "tests/bare-public",
+          "tests/bare-unmarked",
+          {
+            "group": "Mixed group",
+            "public": true,
+            "pages": [
+              "tests/in-public-group"
             ]
           }
         ]
@@ -85,5 +106,19 @@
       "github": "https://github.com/mintlify",
       "linkedin": "https://linkedin.com/company/mintlify"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/legacy/quickstart",
+      "destination": "/quickstart"
+    },
+    {
+      "source": "/legacy/internal",
+      "destination": "/internal/overview"
+    },
+    {
+      "source": "/internal/old-page",
+      "destination": "/quickstart"
+    }
+  ]
 }

@@ -1,0 +1,22 @@
+---
+title: "Partial-auth test cases"
+description: "What each test page checks, and what to probe as a signed-out visitor."
+---
+
+Each row below is a question about Mintlify partial authentication.
+Open each URL in a private window (signed out) and note the result.
+
+| # | Question | URL to open signed out | If it loads | If it redirects to login |
+| - | -------- | ---------------------- | ----------- | ------------------------ |
+| 1 | Does a public group's marker cover an unmarked group nested inside it? | `/tests/nested-child` | Yes, it cascades | No, every nested group needs its own marker |
+| 2a | Does `public: true` in frontmatter work for a page placed directly in a tab? | `/tests/bare-public` | Yes | No |
+| 2b | Is a page placed directly in a tab public without any marker? | `/tests/bare-unmarked` | Yes (unexpected) | No (expected) |
+| 2c | Control: a page in a public group on the same tab | `/tests/in-public-group` | Expected | Something else is wrong |
+| 3a | Is an image in a protected page's folder protected? | `/internal/images/protected-folder.svg` | No, the image is public | Yes |
+| 3b | Is an image in a shared folder, used only by a protected page, protected? | `/images/protected-shared.svg` | No, the image is public | Yes |
+| 3c | Control: an image in a shared folder, used by a public page | `/images/public-control.svg` | Expected | Images are gated wholesale |
+| 4a | Does a redirect from an address that doesn't exist reach a public page? | `/legacy/quickstart` | Yes, lands on Quickstart | No, redirects never run before the login check |
+| 4b | Does a redirect into a protected page ask for login? | `/legacy/internal` | Protected content leaked | Expected |
+| 4c | Does a redirect from a protected folder reach a public page? | `/internal/old-page` | Yes, lands on Quickstart | No, the protected folder is checked first |
+
+Also check whether the **Mixed** tab, and the pages in it, appear in the sidebar and in `/llms.txt` and `/sitemap.xml` when signed out.
