@@ -12,10 +12,10 @@
     "tabs": [
       {
         "tab": "Guides",
-        "public": true,
         "groups": [
           {
             "group": "Getting Started",
+            "public": true,
             "pages": [
               "index",
               "quickstart"
