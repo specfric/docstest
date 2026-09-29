@@ -45,6 +45,25 @@
         ]
       },
       {
+        "tab": "Tab marker",
+        "public": true,
+        "pages": [
+          "tabtest/bare",
+          {
+            "group": "Unmarked group",
+            "pages": [
+              "tabtest/in-group",
+              {
+                "group": "Unmarked nested group",
+                "pages": [
+                  "tabtest/nested"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Internal",
         "groups": [
           {
