@@ -172,5 +172,12 @@
     "metatags": {
       "og:image": "https://raw.githubusercontent.com/specfric/docstest/main/og/og-static.png"
     }
+  },
+  "errors": {
+    "404": {
+      "redirect": false,
+      "title": "Page not found",
+      "description": "TEST-404-MARKER: this address does not exist."
+    }
   }
 }
