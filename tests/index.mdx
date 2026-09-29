@@ -18,5 +18,8 @@ Open each URL in a private window (signed out) and note the result.
 | 4a | Does a redirect from an address that doesn't exist reach a public page? | `/legacy/quickstart` | Yes, lands on Quickstart | No, redirects never run before the login check |
 | 4b | Does a redirect into a protected page ask for login? | `/legacy/internal` | Protected content leaked | Expected |
 | 4c | Does a redirect from a protected folder reach a public page? | `/internal/old-page` | Yes, lands on Quickstart | No, the protected folder is checked first |
+| 5a | Does a tab-level `"public": true` alone make a page placed directly in the tab public? | `/tabtest/bare` | Yes | No, tab markers don't work |
+| 5b | …and a page in an unmarked group in that tab? | `/tabtest/in-group` | Yes | No |
+| 5c | …and a page in an unmarked nested group in that tab? | `/tabtest/nested` | Yes | No |
 
 Also check whether the **Mixed** tab, and the pages in it, appear in the sidebar and in `/llms.txt` and `/sitemap.xml` when signed out.
