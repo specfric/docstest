@@ -1,0 +1,18 @@
+{
+  "tab": "Ref tab",
+  "groups": [
+    {
+      "group": "Ref public group",
+      "public": true,
+      "pages": [
+        "reftab/public"
+      ]
+    },
+    {
+      "group": "Ref unmarked group",
+      "pages": [
+        "reftab/unmarked"
+      ]
+    }
+  ]
+}

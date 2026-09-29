@@ -1,0 +1,23 @@
+openapi: 3.0.3
+info:
+  title: Widgets test API
+  version: 1.0.0
+servers:
+  - url: https://api.example.com
+paths:
+  /widgets:
+    get:
+      summary: List widgets
+      operationId: listWidgets
+      responses:
+        '200':
+          description: A list of widgets.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string

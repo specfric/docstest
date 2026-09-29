@@ -23,3 +23,23 @@ Open each URL in a private window (signed out) and note the result.
 | 5c | …and a page in an unmarked nested group in that tab? | `/tabtest/nested` | Yes | No |
 
 Also check whether the **Mixed** tab, and the pages in it, appear in the sidebar and in `/llms.txt` and `/sitemap.xml` when signed out.
+
+## Round 4
+
+| # | Question | URL to open signed out | Expected if it works |
+| - | -------- | ---------------------- | -------------------- |
+| 6a | Page outside the sidebar, with `public: true` | `/hidden/public-marked` | Loads |
+| 6b | Page outside the sidebar, no marker | `/hidden/unmarked` | Login |
+| 6c | `hidden: true` plus `public: true` | `/hidden/hidden-flag-public` | Loads |
+| 6d | `hidden: true`, no marker | `/hidden/hidden-flag-unmarked` | Login |
+| 7 | Group landing page set with `root` in a public group | `/rooted/landing` | Loads |
+| 8a | OpenAPI page in a public group | `/apitest/list-widgets` | Loads |
+| 8b | The OpenAPI spec file at its site path | `/openapi/spec.yaml` | Unknown |
+| 9 | Static `og:image` from outside the site | page source of any public page | Points to the external PNG |
+| 10a | Public group in a `$ref` tab | `/reftab/public` | Loads |
+| 10b | Unmarked group in a `$ref` tab | `/reftab/unmarked` | Login |
+| 11a | Catch-all redirect to a public page | `/old-docs/quickstart` | Lands on Quickstart |
+| 11b | Catch-all redirect to a protected page | `/old-docs/internal/overview` | Login |
+| 12 | Download as PDF, signed out | contextual menu on a public page | Works |
+| 13a | Snippet shared by public and protected pages | `/tests/in-public-group` | Shows SNIPPET-MARKER-7431 |
+| 13b | The snippet file at its site path | `/snippets/shared.mdx` | Login or 404 |

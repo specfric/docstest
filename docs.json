@@ -41,6 +41,14 @@
             "pages": [
               "tests/in-public-group"
             ]
+          },
+          {
+            "group": "Rooted group",
+            "public": true,
+            "root": "rooted/landing",
+            "pages": [
+              "rooted/child"
+            ]
           }
         ]
       },
@@ -64,6 +72,18 @@
         ]
       },
       {
+        "tab": "API test",
+        "groups": [
+          {
+            "group": "API reference",
+            "public": true,
+            "pages": [
+              "apitest/list-widgets"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Internal",
         "groups": [
           {
@@ -73,6 +93,9 @@
             ]
           }
         ]
+      },
+      {
+        "$ref": "./config/ref-tab.json"
       }
     ],
     "global": {
@@ -116,7 +139,8 @@
       "perplexity",
       "mcp",
       "cursor",
-      "vscode"
+      "vscode",
+      "download-pdf"
     ]
   },
   "footer": {
@@ -138,6 +162,15 @@
     {
       "source": "/internal/old-page",
       "destination": "/quickstart"
+    },
+    {
+      "source": "/old-docs/:path*",
+      "destination": "/:path*"
     }
-  ]
+  ],
+  "seo": {
+    "metatags": {
+      "og:image": "https://raw.githubusercontent.com/specfric/docstest/main/og/og-static.png"
+    }
+  }
 }
