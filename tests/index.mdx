@@ -44,3 +44,16 @@ Also check whether the **Mixed** tab, and the pages in it, appear in the sidebar
 | 13a | Snippet shared by public and protected pages | `/tests/in-public-group` | Shows SNIPPET-MARKER-7431 |
 | 13b | The snippet file at its site path | `/snippets/shared.mdx` | Login or 404 |
 | 14 | `errors.404.redirect: false`: does an unknown address show a 404 instead of the login page? | `/does-not-exist` | 404 page with TEST-404-MARKER |
+
+## Round 5
+
+Hand-written agent skills in `.mintlify/skills/`. Deploy marker: R5-DEPLOY-MARKER-2026-10-02.
+
+| Skill | Frontmatter | Expected signed out if Mintlify's skill.md page is right |
+| ----- | ----------- | -------------------------------------------------------- |
+| A `public-skill` | `public: true` | Listed and served |
+| B `unmarked-skill` | none | Hidden |
+| C `group-skill` | `groups: ["admin"]` | Hidden (404) |
+| D `public-group-skill` | `public: true` and `groups: ["admin"]` | Unknown: tests which wins |
+
+Probe `/.well-known/agent-skills/index.json`, `/.well-known/skills/index.json`, `/skill.md`, `/.well-known/agent-card.json`, and MCP `resources/list` at `/mcp`.
